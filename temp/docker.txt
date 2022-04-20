@@ -1,0 +1,1 @@
+docker run --name c_api_postgres -d -p 2345:5432 -e POSTGRES_USER=usuario -e POSTGRES_PASSWORD=258369 -e POSTGRES_DB=shopping_list postgres
