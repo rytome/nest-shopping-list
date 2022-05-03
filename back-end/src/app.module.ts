@@ -17,6 +17,10 @@ import { ItemModule } from './item/item.module';
      database: process.env.DB_DATABASE,
      entities: [__dirname + '/**/*.entity{.ts,.js}'],
      synchronize: (process.env.DB_SYNCHRONIZE === 'true'),
+     ssl: {rejectUnauthorized: false}, 
+    logger: "advanced-console",
+    logging: true
+     
    }),
    ItemModule,
  ],

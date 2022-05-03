@@ -15,11 +15,15 @@ export class ItemService {
  }
 
  findAll(): Promise<Item[]> {
-   return this.repository.find();
+   return this.repository.find({order: {name: 'ASC'}});
  }
 
- findOne(id: string): Promise<Item> {
-   return this.repository.findOne(id);
+ async findOne(id: string): Promise<Item> {
+   const item = await this.repository.findOne(id);
+   if (!item){
+      throw new NotFoundException(`Item ${id} not found`);
+   }
+   return item;
  }
 
  async update(id: string, updateItemDto: UpdateItemDto): Promise<Item> {
