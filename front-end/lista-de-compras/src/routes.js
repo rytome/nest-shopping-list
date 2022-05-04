@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Produtos from './pages/Produtos'
 import Inicio from './pages/Inicio'
+import AdicionarProduto from "./pages/AdicionarProduto";
 
 
 export default function Routes(){
@@ -9,7 +10,8 @@ export default function Routes(){
         <BrowserRouter>
             <Switch>
                 <Route path='/' exact component={Inicio}/>
-                <Route path='/produtos' exact component={Produtos}/>
+                <Route path='/produtos' component={Produtos}/>
+                <Route path='/adicionar' component={AdicionarProduto}/>
             </Switch>
         </BrowserRouter>
     )
