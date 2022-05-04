@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import { Menu } from 'antd';
+
+import { Layout } from 'antd';
+
+import RouterPage from './routes';
+
+import {PlusCircleOutlined, UnorderedListOutlined} from '@ant-design/icons';
+
+
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Layout className='main__content'>
+        <Header className='header'>Lista de Compras</Header>
+          <Layout>
+            <Sider className='menu'>
+              <Menu className='menu__section'>
+                <Menu.Item key={1} icon={<PlusCircleOutlined />}>
+                  Adicionar Produto
+                </Menu.Item>
+                <Menu.Item key={2} icon={<UnorderedListOutlined />}>
+                  Listar Produtos
+                </Menu.Item>
+              </Menu>
+            </Sider>
+            <Content>
+              <RouterPage>
+
+              </RouterPage>
+            </Content>
+          </Layout>
+        <Footer className='footer'>Todos os direitos reservados</Footer>
+    </Layout>
     </div>
   );
 }
