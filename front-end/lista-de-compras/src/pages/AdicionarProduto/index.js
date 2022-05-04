@@ -1,6 +1,6 @@
 import './styles.css'
 
-import React from 'react'
+import React, {useState} from 'react'
 import api from '../../services/api'
 import { useHistory } from 'react-router-dom'
 
@@ -8,9 +8,11 @@ import { message, Form, Input, Button, InputNumber } from 'antd'
 
 export default function AdicionarProduto(){
 
+    const [disabled, setDisabled] = useState(false) 
     const history = useHistory()
 
     async function handleSubmit(produto){
+        setDisabled(true)
         debugger;
         api.post('/item', produto)
             .then((response) => {
@@ -20,7 +22,8 @@ export default function AdicionarProduto(){
                 }
             })
             .catch((err) => {
-                message.error('Aconteceu um erro ao adicionar o produto' + err)
+                message.error('Aconteceu um erro ao adicionar o produto' + err.response.data.message)
+                setDisabled(false)
             })
     }
 
@@ -63,7 +66,7 @@ export default function AdicionarProduto(){
                     </Form.Item>
 
                     <Form.Item>
-                        <Button type='primary' htmlType='submit'>
+                        <Button type='primary' htmlType='submit' disabled={disabled}>
                             Adicionar
                         </Button>
                     </Form.Item>
