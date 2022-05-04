@@ -3,7 +3,7 @@ import api from '../../services/api'
 import { useParams, useHistory } from "react-router-dom";
 import './styles.css'
 import { Button, Card, message, Modal } from "antd";
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined, EditOutlined } from '@ant-design/icons';
 
 export default function DetalhesProduto(){
     const [produto, setProduto] = useState([])
@@ -62,7 +62,11 @@ export default function DetalhesProduto(){
                     <p><b>Descrição:</b> {produto.description}</p>
                     <p><b>Quantidade:</b> {produto.quantity}</p>
                     <p><b>Última Atualização:</b> {produto.updatedAt}</p>
+                    <hr/>
+                    <div className="produto__card__actions">
+                    <Button type="primary" sucecess icon={<EditOutlined/>} onClick={() => history.push(`/editar/${produto.id}`, produto) }>Editar</Button>
                     <Button type="primary" danger onClick={() => showConfirm(produto) }>Excluir</Button>
+                    </div>
                 </Card>
             </div>
         </div>
