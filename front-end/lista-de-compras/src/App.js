@@ -7,7 +7,7 @@ import { Layout } from 'antd';
 
 import RouterPage from './routes';
 
-import {PlusCircleOutlined, UnorderedListOutlined} from '@ant-design/icons';
+import {PlusCircleOutlined, UnorderedListOutlined, HomeOutlined} from '@ant-design/icons';
 
 import { useHistory } from 'react-router-dom';
 
@@ -31,6 +31,9 @@ function App() {
                 </Menu.Item>
                 <Menu.Item key={2} icon={<UnorderedListOutlined />} onClick={() => history.push('/produtos')}>
                   Listar Produtos
+                </Menu.Item>
+                <Menu.Item key={3} icon={<HomeOutlined />} onClick={() => history.push('/')}>
+                  Home
                 </Menu.Item>
               </Menu>
             </Sider>
