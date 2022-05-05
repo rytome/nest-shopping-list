@@ -5,6 +5,7 @@ import Inicio from './pages/Inicio'
 import AdicionarProduto from "./pages/AdicionarProduto";
 import DetalhesProduto from './pages/DetalhesProduto';
 import EditarProduto from './pages/EditarProduto'
+import ProcurarProduto from './pages/ProcurarProduto'
 
 export default function Routes(){
     return(
@@ -15,6 +16,7 @@ export default function Routes(){
                 <Route path='/adicionar' component={AdicionarProduto}/>
                 <Route path='/detalhes/:id' component={DetalhesProduto}/>
                 <Route path='/editar/:id' component={EditarProduto}/>
+                <Route path='/procurar' component={ProcurarProduto}/>
             </Switch>
      
     )
