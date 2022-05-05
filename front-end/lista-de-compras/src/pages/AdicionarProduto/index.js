@@ -30,10 +30,10 @@ export default function AdicionarProduto(){
     return(
         <div className='produto__container'>
             <h1>
-                Adicionar novo produto
+                Adicionar produto
             </h1>
             <br/>
-            <div>
+            <div className='produto__form'>
                 <Form 
                 name='submitProduto'
                 labelCol={{span:8}}
@@ -46,7 +46,8 @@ export default function AdicionarProduto(){
                     name='name'
                     rules={[{required: true, message: "O nome do item não pode ser vazio!"}]}
                     >
-                        <Input/>
+                
+                        <Input placeholder="Nome"/>
                     </Form.Item>
 
                     <Form.Item 
@@ -54,7 +55,7 @@ export default function AdicionarProduto(){
                     name='description'
                     rules={[{required: true, message: "A descrição do item não pode ser vazia!"}]}
                     >
-                        <Input/>
+                        <Input placeholder="Descrição"/>
                     </Form.Item>
 
                     <Form.Item 
@@ -62,7 +63,7 @@ export default function AdicionarProduto(){
                     name='quantity'
                     rules={[{required: true, message: "Insira a quantidade"}]}
                     >
-                        <InputNumber/>
+                        <InputNumber placeholder="Quantidade" min={1} max={10000} />
                     </Form.Item>
 
                     <Form.Item>

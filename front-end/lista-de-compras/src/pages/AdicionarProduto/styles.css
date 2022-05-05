@@ -1,8 +1,16 @@
 .produto__container{
     padding: 16px;
+ 
 }
 
 .produto__container h1{
     font-size: 16px;
     font-weight: 600;
+}
+
+.produto__form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 8px;
 }
