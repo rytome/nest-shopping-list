@@ -30,10 +30,10 @@ export default function AdicionarProduto(){
     return(
         <div className='produto__container'>
             <h1>
-                Adicionar novo produto
+                Adicionar produto
             </h1>
             <br/>
-            <div>
+            <div className='produto__form'>
                 <Form 
                 name='submitProduto'
                 labelCol={{span:8}}
@@ -46,6 +46,7 @@ export default function AdicionarProduto(){
                     name='name'
                     rules={[{required: true, message: "O nome do item não pode ser vazio!"}]}
                     >
+                
                         <Input placeholder="Nome"/>
                     </Form.Item>
 

@@ -29,7 +29,7 @@ function App() {
                 <Menu.Item key={1} icon={<PlusCircleOutlined />} onClick={() => history.push('/adicionar')}>
                   Adicionar Produto
                 </Menu.Item>
-                <Menu.Item key={2} icon={<UnorderedListOutlined />}>
+                <Menu.Item key={2} icon={<UnorderedListOutlined />} onClick={() => history.push('/produtos')}>
                   Listar Produtos
                 </Menu.Item>
               </Menu>
