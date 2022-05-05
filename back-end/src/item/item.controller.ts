@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
+import { query } from 'express';
 
 @Controller('item')
 export class ItemController {
@@ -13,8 +14,9 @@ export class ItemController {
   }
 
   @Get()
-  findAll() {
-    return this.itemService.findAll();
+  findAll(@Query('query') filter: string) {
+    console.log("findAll");
+    return this.itemService.findAll(filter);
   }
 
   @Get(':id')
