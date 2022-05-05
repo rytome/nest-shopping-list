@@ -30,13 +30,16 @@ export default function DetalhesProduto(){
     }
 
     function handleDelete(id){
+        setLoading(true)
         api.delete(`/item/${id}`)
         .then((response) => {
             if (response.status == 200)
+                setLoading(false)
                 message.success("O produto foi excluído com sucesso!")
                 history.push('/produtos')
         })
         .catch((err) => {
+            setLoading(false)
             message.error("Aconteceu um erro inesperado")
 
         })
