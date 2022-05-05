@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, ILike } from 'typeorm';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
 import { Item } from './entities/item.entity';
@@ -14,7 +14,16 @@ export class ItemService {
    return this.repository.save(item);
  }
 
- findAll(): Promise<Item[]> {
+ async findAll(filter?: string): Promise<Item[]> {
+   if (filter){
+     console.log(filter)
+     const item = await this.repository.find({name: ILike('%'+filter+'%')});
+     if (item.length == 0){
+      throw new NotFoundException(`Item ${filter} not found`);
+   }
+    return item;
+     
+   }
    return this.repository.find({order: {name: 'ASC'}});
  }
 
